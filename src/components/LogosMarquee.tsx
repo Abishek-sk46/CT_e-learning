@@ -2,8 +2,8 @@ import React from "react";
 
 // Company logos with their names
 const logos = [
-  { src: "/logo/LOGOS/apple-seeklogo.svg", alt: "Apple" },
-  { src: "/logo/LOGOS/google-black-seeklogo.svg", alt: "Google" },
+  { src: "logo/LOGOS/apple-seeklogo.svg", alt: "Apple" },
+  { src: "logo/LOGOS/google-black-seeklogo.svg", alt: "Google" },
   { src: "/logo/LOGOS/instagram-seeklogo.svg", alt: "Instagram" },
   { src: "/logo/LOGOS/linkedin-black-seeklogo.png", alt: "LinkedIn" },
   { src: "/logo/LOGOS/meta-seeklogo.svg", alt: "Meta" },
