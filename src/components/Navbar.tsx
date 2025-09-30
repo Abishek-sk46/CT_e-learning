@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <header
       className="fixed top-0 left-0 right-0 z-50 py-4"
       style={{
-        backgroundImage: "url('/Vector 1.png')",
+        backgroundImage: "url('/Vector_1.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

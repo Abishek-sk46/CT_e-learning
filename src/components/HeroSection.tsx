@@ -6,7 +6,7 @@ const HeroSection: React.FC = () => {
     <section
       className="text-center text-white px-6 py-20 pt-32"
       style={{
-        backgroundImage: "url('/Vector 1.png')",
+        backgroundImage: "url('/Vector_1.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
