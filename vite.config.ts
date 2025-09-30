@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/my-app/',
+  base: '/CT_e-learning/',
 })
