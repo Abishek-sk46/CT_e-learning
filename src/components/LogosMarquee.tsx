@@ -4,10 +4,10 @@ import React from "react";
 const logos = [
   { src: "logo/LOGOS/apple-seeklogo.svg", alt: "Apple" },
   { src: "logo/LOGOS/google-black-seeklogo.svg", alt: "Google" },
-  { src: "/logo/LOGOS/instagram-seeklogo.svg", alt: "Instagram" },
-  { src: "/logo/LOGOS/linkedin-black-seeklogo.png", alt: "LinkedIn" },
-  { src: "/logo/LOGOS/meta-seeklogo.svg", alt: "Meta" },
-  { src: "/logo/LOGOS/microsoft-seeklogo.png", alt: "Microsoft" },
+  { src: "logo/LOGOS/instagram-seeklogo.svg", alt: "Instagram" },
+  { src: "logo/LOGOS/linkedin-black-seeklogo.png", alt: "LinkedIn" },
+  { src: "logo/LOGOS/meta-seeklogo.svg", alt: "Meta" },
+  { src: "logo/LOGOS/microsoft-seeklogo.png", alt: "Microsoft" },
 ];
 
 const LogoCarousel: React.FC = () => {
