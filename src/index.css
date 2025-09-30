@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+body {
+  background-color: #1a202c;
+  /* Tailwind bg-gray-900 */
+}
+
+
+
+/* Infinite Carousel Animation */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Custom animation for logo carousel */
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 20s linear infinite;
+}
+
+/* Slower animation on larger screens */
+@media (min-width: 768px) {
+  .animate-scroll-horizontal {
+    animation: scroll-horizontal 30s linear infinite;
+  }
+}
+
+.group:hover .animate-scroll-horizontal {
+  animation-play-state: paused;
+}
