@@ -91,11 +91,11 @@ const Navbar: React.FC<NavbarProps> = ({
       }}
     >
       {/* Navbar box */}
-      <div className="max-w-6xl mx-auto px-6 rounded-full bg-gray-900/80 backdrop-blur-sm border border-white/30">
-        <nav className="flex items-center justify-between h-20 px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 rounded-full bg-gray-900/80 backdrop-blur-sm border border-white/30">
+        <nav className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
           {/* Brand */}
           <div className="flex items-center">
-            <span className="text-white text-xl font-semibold uppercase tracking-wide">
+            <span className="text-white text-lg sm:text-xl font-semibold uppercase tracking-wide">
               {brand}
             </span>
           </div>
@@ -119,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       <a
                         role="menuitem"
                         href={link.href ?? "#"}
-                        className={`text-lg px-4 py-3 rounded-2xl transition ${isActive
+                        className={`text-sm lg:text-lg px-3 lg:px-4 py-2 lg:py-3 rounded-2xl transition ${isActive
                           ? "text-white font-semibold bg-gray-700"
                           : "text-gray-300 hover:text-white hover:bg-gray-600"
                           }`}
@@ -136,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({
               {/* Mega Menu */}
               {megaMenuOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
-                  <div className="bg-gray-800 border border-gray-600 rounded-xl shadow-2xl w-[600px]">
+                  <div className="bg-gray-800 border border-gray-600 rounded-xl shadow-2xl w-[90vw] max-w-[600px]">
                     <div className="flex">
                       {/* Left Column - Categories */}
                       <div className="w-1/2 p-6 border-r border-gray-600">
@@ -194,7 +194,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right side */}
           <div className="flex items-center gap-4">
-            <button className="hidden md:inline-flex items-center px-10 py-3 rounded-full text-lg text-white font-medium hover:scale-[1.02] transition bg-gradient-to-r from-gray-600 via-slate-900 to-slate-900 border border-white/30">
+            <button className="hidden md:inline-flex items-center px-6 lg:px-10 py-2 lg:py-3 rounded-full text-sm lg:text-lg text-white font-medium hover:scale-[1.02] transition bg-gradient-to-r from-gray-600 via-slate-900 to-slate-900 border border-white/30">
               Sign In
             </button>
 

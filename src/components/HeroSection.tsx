@@ -4,7 +4,7 @@ import LogosMarquee from "./LogosMarquee";
 const HeroSection: React.FC = () => {
   return (
     <section
-      className="text-center text-white px-6 py-20 pt-40"
+      className="text-center text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-20 pt-24 sm:pt-40 w-full"
       style={{
         backgroundImage: `url(${import.meta.env.BASE_URL}Vector_1.png)`,
         backgroundSize: 'cover',
@@ -13,131 +13,128 @@ const HeroSection: React.FC = () => {
       }}
     >
       {/* Headings */}
-      <h1
-        style={{
-          fontFamily: "'Bricolage Grotesque', sans-serif",
-          fontWeight: 600,
-          fontSize: '64px',
-          color: '#FFFFFF',
-          marginBottom: '0',
-          lineHeight: '1'
-        }}
-      >
-        Education Reimagined
-      </h1>
-      <div className="relative inline-block" style={{ marginTop: '-10px' }}>
-        {/* Glow Layer */}
-        <h2
-          className="absolute inset-0 text-transparent bg-clip-text blur-sm opacity-40"
+      <div className="w-full max-w-5xl mx-auto">
+        <h1
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6"
           style={{
-            backgroundImage: "linear-gradient(to right, #BC60DA, #DF5780, #FF4F5A)",
-            fontSize: "82px",
+            fontFamily: "'Bricolage Grotesque', sans-serif",
             fontWeight: 600,
-            fontFamily: '"Bricolage Grotesque"',
+            color: '#FFFFFF',
+            lineHeight: '0.9'
           }}
         >
-          Loomed with Purpose
-        </h2>
+          Education Reimagined
+        </h1>
+        <div className="relative flex justify-center w-full" style={{ marginTop: '0px' }}>
+          <div className="relative inline-block">
+            {/* Glow Layer */}
+            <h2
+              className="absolute inset-0 text-transparent bg-clip-text blur-sm opacity-40 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+              style={{
+                backgroundImage: "linear-gradient(to right, #BC60DA, #DF5780, #FF4F5A)",
+                fontWeight: 600,
+                fontFamily: '"Bricolage Grotesque"',
+                lineHeight: '0.9',
+                marginTop: '0',
+                marginBottom: '0'
+              }}
+            >
+              Loomed with Purpose
+            </h2>
 
-        {/* Main Text */}
-        <h2
-          className="relative text-transparent bg-clip-text"
-          style={{
-            backgroundImage: "linear-gradient(to right, #BC60DA, #DF5780, #FF4F5A)",
-            fontSize: "82px",
-            fontWeight: 600,
-            fontFamily: '"Bricolage Grotesque"',
-          }}
-        >
-          Loomed with Purpose
-        </h2>
+            {/* Main Text */}
+            <h2
+              className="relative text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+              style={{
+                backgroundImage: "linear-gradient(to right, #BC60DA, #DF5780, #FF4F5A)",
+                fontWeight: 600,
+                fontFamily: '"Bricolage Grotesque"',
+                lineHeight: '0.9',
+                marginTop: '0',
+                marginBottom: '0'
+              }}
+            >
+              Loomed with Purpose
+            </h2>
+          </div>
 
+        </div>
       </div>
 
       {/* Subtext */}
-      <p
-        className="text-lg max-w-3xl mx-auto mb-10 text-center font-['Plus_Jakarta_Sans'] text-[#DCDCDC] font-medium leading-[150%]"
-      >
-        Gain practical, job-ready skills through expert-led courses and real-world projects. <br />
-        We help you to&nbsp;<span className="whitespace-nowrap">weave knowledge into meaningful career growth.</span>
-      </p>
+      <div className="w-full max-w-4xl mx-auto mt-8 sm:mt-6">
+        <p
+          className="text-base sm:text-lg mb-10 text-center font-['Plus_Jakarta_Sans'] text-[#DCDCDC] font-medium leading-[150%] max-w-full sm:max-w-3xl mx-auto px-2 sm:px-0"
+        >
+          Gain practical, job-ready skills through expert-led courses and real-world projects. We help you to weave knowledge into meaningful career growth.
+        </p>
+      </div>
 
 
       {/* Reviews */}
-      <div className="flex flex-col items-center gap-4 mb-10">
+      <div className="flex flex-col items-center gap-4 mb-10 w-full max-w-2xl mx-auto">
         {/* Avatars */}
-        <div className="flex -space-x-3">
+        <div className="flex -space-x-2 sm:-space-x-3 justify-center">
           <img
             src="https://randomuser.me/api/portraits/women/1.jpg"
             alt="user1"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
             style={{
-              width: '50px',
-              height: '50px',
               aspectRatio: '1/1',
-              borderRadius: '45px',
-              border: '4px solid var(--BG-color, #0D0D12)',
+              borderColor: 'var(--BG-color, #0D0D12)',
               background: 'url(https://randomuser.me/api/portraits/women/1.jpg) lightgray 50% / cover no-repeat'
             }}
           />
           <img
             src="https://randomuser.me/api/portraits/women/2.jpg"
             alt="user2"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
             style={{
-              width: '50px',
-              height: '50px',
               aspectRatio: '1/1',
-              borderRadius: '45px',
-              border: '4px solid var(--BG-color, #0D0D12)',
+              borderColor: 'var(--BG-color, #0D0D12)',
               background: 'url(https://randomuser.me/api/portraits/women/2.jpg) lightgray 50% / cover no-repeat'
             }}
           />
           <img
             src="https://randomuser.me/api/portraits/women/3.jpg"
             alt="user3"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
             style={{
-              width: '50px',
-              height: '50px',
               aspectRatio: '1/1',
-              borderRadius: '45px',
-              border: '4px solid var(--BG-color, #0D0D12)',
+              borderColor: 'var(--BG-color, #0D0D12)',
               background: 'url(https://randomuser.me/api/portraits/women/3.jpg) lightgray 50% / cover no-repeat'
             }}
           />
           <img
             src="https://randomuser.me/api/portraits/men/4.jpg"
             alt="user4"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
             style={{
-              width: '50px',
-              height: '50px',
               aspectRatio: '1/1',
-              borderRadius: '45px',
-              border: '4px solid var(--BG-color, #0D0D12)',
+              borderColor: 'var(--BG-color, #0D0D12)',
               background: 'url(https://randomuser.me/api/portraits/men/4.jpg) lightgray 50% / cover no-repeat'
             }}
           />
           <img
             src="https://randomuser.me/api/portraits/men/5.jpg"
             alt="user5"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
             style={{
-              width: '50px',
-              height: '50px',
               aspectRatio: '1/1',
-              borderRadius: '45px',
-              border: '4px solid var(--BG-color, #0D0D12)',
+              borderColor: 'var(--BG-color, #0D0D12)',
               background: 'url(https://randomuser.me/api/portraits/men/5.jpg) lightgray 50% / cover no-repeat'
             }}
           />
         </div>
 
         {/* Review text */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-center gap-2">
           <span
-            className="font-semibold"
+            className="font-semibold text-base sm:text-lg"
             style={{
               color: "#FCFCFC",
               textAlign: "center",
               fontFamily: "Inter",
-              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "121.101%",
@@ -149,9 +146,8 @@ const HeroSection: React.FC = () => {
             {[...Array(5)].map((_, index) => (
               <svg
                 key={index}
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 style={{
-                  width: '22px',
-                  height: '22px',
                   transform: 'rotate(72.728deg)',
                   aspectRatio: '18.00/17.19'
                 }}
@@ -163,11 +159,11 @@ const HeroSection: React.FC = () => {
             ))}
           </div>
           <span
+            className="text-base sm:text-lg"
             style={{
               color: "#FCFCFC",
               textAlign: "center",
               fontFamily: "Inter",
-              fontSize: "18px",
               fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "121.101%",
@@ -181,11 +177,10 @@ const HeroSection: React.FC = () => {
 
 
       {/* CTA button */}
-      <div className="flex justify-center">
+      <div className="flex justify-center w-full max-w-md mx-auto">
         <button
-          className="cta-button shadow-md hover:shadow-lg transition-all duration-300"
+          className="cta-button shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-xs sm:max-w-sm"
           style={{
-            width: '250px',
             height: '60px',
             borderRadius: '12px',
             padding: '14px 20px',
@@ -194,7 +189,7 @@ const HeroSection: React.FC = () => {
             color: 'white',
             fontFamily: '"Plus Jakarta Sans"',
             fontWeight: 600,
-            fontSize: '20px',
+            fontSize: '18px',
             lineHeight: '32px',
             letterSpacing: '0%',
             border: '2px solid transparent',
@@ -205,45 +200,45 @@ const HeroSection: React.FC = () => {
             whiteSpace: 'nowrap'
           }}
         >
-          Start Learning Now
+          <span className="text-base sm:text-lg md:text-xl">Start Learning Now</span>
         </button>
       </div>
 
       {/* Company Logos Carousel */}
-      <div className="mt-12">
-        <h3
-          className="mx-auto mb-12"
-          style={{
-            width: "460px",
-            textAlign: "center",
-            fontFamily: '"Bricolage Grotesque"',
-            fontSize: "42px",
-            fontStyle: "normal",
-            fontWeight: 600,
-            lineHeight: "107%", // ~44.94px
-            color: "#FFF",
-          }}
-        >
-          Where do our looms <br />
-          <span
+      <div className="mt-20 sm:mt-24 w-full">
+        <div className="max-w-3xl mx-auto">
+          <h3
+            className="mb-16 sm:mb-20 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
             style={{
-              background: "linear-gradient(91deg, #BC60DA -1.84%, #DF5780 34.96%, #FF4F5A 103.21%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              textAlign: "center",
               fontFamily: '"Bricolage Grotesque"',
-              fontSize: "42px",
               fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "107%",
+              color: "#FFF",
             }}
           >
-            work?
-          </span>
-        </h3>
+            Where do our looms <br />
+            <span
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+              style={{
+                background: "linear-gradient(91deg, #BC60DA -1.84%, #DF5780 34.96%, #FF4F5A 103.21%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: '"Bricolage Grotesque"',
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "107%",
+              }}
+            >
+              work?
+            </span>
+          </h3>
+        </div>
 
 
-        <div className="mt-12">
+        <div className="mt-12 w-full">
           <LogosMarquee />
         </div>
       </div>
