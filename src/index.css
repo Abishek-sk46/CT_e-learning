@@ -26,10 +26,45 @@ body {
 /* Slower animation on larger screens */
 @media (min-width: 768px) {
   .animate-scroll-horizontal {
-    animation: scroll-horizontal 30s linear infinite;
+    animation: scroll-horizontal 10s linear infinite;
   }
 }
 
-.group:hover .animate-scroll-horizontal {
-  animation-play-state: paused;
+/* CTA Button Effects */
+@keyframes subtle-blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes continuous-blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cta-button {
+  animation: continuous-blink 2s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  border: 2px solid white !important;
+  animation: subtle-blink 0.3s ease-in-out, continuous-blink 2s ease-in-out infinite;
+  transform: scale(1.01);
 }

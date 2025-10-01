@@ -8,6 +8,9 @@ export default {
         extend: {
             animation: {
                 'spin-slow': 'spin 3s linear infinite',
+            },
+            fontFamily: {
+                'bricolage': ['Bricolage Grotesque', 'sans-serif'],
             }
         },
     },

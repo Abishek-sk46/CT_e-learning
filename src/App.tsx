@@ -5,12 +5,10 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="bg-gray-900 min-h-screen pt-8">
+    <div className="bg-[#0D0D12] min-h-screen pt-8">
       {/* Navbar at the top */}
       <Navbar activeIndex={0} />
       <HeroSection />
-
-      
     </div>
   );
 }
