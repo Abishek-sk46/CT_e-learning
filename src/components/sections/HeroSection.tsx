@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../ui";
 import LogosMarquee from "./LogosMarquee";
 
 const HeroSection: React.FC = () => {
@@ -13,9 +14,7 @@ const HeroSection: React.FC = () => {
       }}
     >
 
-      {/* Scroll Down Indicator */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-6 bg-red-500/20 border-2 border-red-500">
-        {/* Arrow First */}
         <div
           style={{
             transform: 'rotate(-90deg)',
@@ -27,12 +26,10 @@ const HeroSection: React.FC = () => {
             alt="Scroll down arrow"
             className="w-32 h-auto border-2 border-blue-500"
             style={{
-              
+
             }}
           />
         </div>
-
-        {/* Text Below Arrow */}
         <div
           style={{
             transform: 'rotate(-90deg)',
@@ -72,7 +69,6 @@ const HeroSection: React.FC = () => {
         </h1>
         <div className="relative flex justify-center w-full" style={{ marginTop: '0px' }}>
           <div className="relative inline-block">
-            {/* Glow Layer */}
             <h2
               className="absolute inset-0 text-transparent bg-clip-text blur-sm opacity-40 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
               style={{
@@ -87,7 +83,6 @@ const HeroSection: React.FC = () => {
               Loomed with Purpose
             </h2>
 
-            {/* Main Text */}
             <h2
               className="relative text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
               style={{
@@ -116,9 +111,7 @@ const HeroSection: React.FC = () => {
       </div>
 
 
-      {/* Reviews */}
       <div className="flex flex-col items-center gap-4 mb-10 w-full max-w-2xl mx-auto">
-        {/* Avatars */}
         <div className="flex -space-x-2 sm:-space-x-3 justify-center">
           <img
             src="https://randomuser.me/api/portraits/women/1.jpg"
@@ -221,32 +214,19 @@ const HeroSection: React.FC = () => {
       </div>
 
 
-      {/* CTA button */}
       <div className="flex justify-center w-full max-w-md mx-auto">
-        <button
-          className="cta-button shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-xs sm:max-w-sm"
+        <Button
+          variant="primary"
+          size="lg"
+          className="w-full max-w-xs sm:max-w-sm text-base sm:text-lg md:text-xl"
           style={{
             height: '60px',
-            borderRadius: '12px',
-            padding: '14px 20px',
-            gap: '10px',
-            backgroundColor: '#451AF5',
-            color: 'white',
             fontFamily: '"Plus Jakarta Sans"',
             fontWeight: 600,
-            fontSize: '18px',
-            lineHeight: '32px',
-            letterSpacing: '0%',
-            border: '2px solid transparent',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            whiteSpace: 'nowrap'
           }}
         >
-          <span className="text-base sm:text-lg md:text-xl">Start Learning Now</span>
-        </button>
+          Start Learning Now
+        </Button>
       </div>
 
       {/* Company Logos Carousel */}

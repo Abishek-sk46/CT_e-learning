@@ -1,6 +1,5 @@
 
-import Navbar from "./components/Navbar"; // 👈 Import our Navbar
-import HeroSection from "./components/HeroSection";
+import { Navbar, HeroSection } from "./components";
 import "./App.css";
 
 function App() {

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+CONSISTENCY_CHECKLIST.md
+DEVELOPMENT_GUIDELINES.md
