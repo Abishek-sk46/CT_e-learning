@@ -91,7 +91,8 @@ const Navbar: React.FC<NavbarProps> = ({
       }}
     >
       {/* Navbar box */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 rounded-full bg-gray-900/80 backdrop-blur-sm border border-white/30">
+      <div className={`max-w-6xl mx-auto px-4 sm:px-6 bg-gray-900/80 backdrop-blur-sm border border-white/30 ${mobileOpen ? "rounded-2xl" : "rounded-full"
+        }`}>
         <nav className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
           {/* Brand */}
           <div className="flex items-center">
@@ -200,7 +201,10 @@ const Navbar: React.FC<NavbarProps> = ({
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 rounded-md text-gray-300 hover:text-white"
+              className={`md:hidden p-2 rounded-lg transition-colors ${mobileOpen
+                ? "text-white bg-white/10"
+                : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
               onClick={() => setMobileOpen((s) => !s)}
               aria-expanded={mobileOpen}
               aria-label="Toggle navigation"
@@ -240,30 +244,36 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile dropdown */}
         {mobileOpen && (
-          <div className="md:hidden bg-gray-800 mt-2 rounded-md p-3">
-            <ul className="flex flex-col gap-3" role="menubar">
-              {links.map((link, i) => {
-                const isActive = i === activeIndex;
-                return (
-                  <li key={link.label} role="none">
-                    <a
-                      role="menuitem"
-                      href={link.href ?? "#"}
-                      className={`block text-lg px-4 py-2 rounded-full ${isActive
-                        ? "text-white font-semibold bg-gray-700"
-                        : "text-gray-300 hover:text-white hover:bg-gray-600"
-                        }`}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="mt-3">
-              <button className="w-full rounded-full px-4 py-2 border border-white/30 text-lg text-white">
-                Sign In
-              </button>
+          <div className="md:hidden mt-4 pb-4">
+            <div className="border-t border-white/20 pt-4">
+              <ul className="flex flex-col gap-2" role="menubar">
+                {links.map((link, i) => {
+                  const isActive = i === activeIndex;
+                  return (
+                    <li key={link.label} role="none">
+                      <a
+                        role="menuitem"
+                        href={link.href ?? "#"}
+                        className={`block text-base px-4 py-3 rounded-lg transition-colors ${isActive
+                          ? "text-white font-semibold bg-white/10"
+                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                          }`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <button
+                  className="w-full rounded-lg px-4 py-3 border border-white/20 text-base text-white hover:bg-white/5 transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Sign In
+                </button>
+              </div>
             </div>
           </div>
         )}
