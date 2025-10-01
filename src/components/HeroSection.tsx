@@ -12,6 +12,51 @@ const HeroSection: React.FC = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
+
+      {/* Scroll Down Indicator */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-6 bg-red-500/20 border-2 border-red-500">
+        {/* Arrow First */}
+        <div
+          style={{
+            transform: 'rotate(-90deg)',
+            transformOrigin: 'center'
+          }}
+        >
+          <img
+            src={`(${import.meta.env.BASE_URL}scroll.svg)`}
+            alt="Scroll down arrow"
+            className="w-32 h-auto border-2 border-blue-500"
+            style={{
+              
+            }}
+          />
+        </div>
+
+        {/* Text Below Arrow */}
+        <div
+          style={{
+            transform: 'rotate(-90deg)',
+            transformOrigin: 'center'
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '20px',
+              fontWeight: 400,
+              lineHeight: '150%',
+              color: 'white',
+              opacity: 1,
+              whiteSpace: 'nowrap',
+              backgroundColor: 'red',
+              padding: '4px'
+            }}
+          >
+            Scroll Down
+          </span>
+        </div>
+      </div>
+
       {/* Headings */}
       <div className="w-full max-w-5xl mx-auto">
         <h1
