@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../ui";
 import LogosMarquee from "./LogosMarquee";
 
 const HeroSection: React.FC = () => {
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Hide scroll indicator when user scrolls down more than 50% of viewport height
+      if (scrollY > windowHeight * 0.5) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section
-      className="text-center text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-20 pt-24 sm:pt-40 w-full"
+      className="text-center text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-20 pt-24 sm:pt-40 w-full relative"
       style={{
         backgroundImage: `url(${import.meta.env.BASE_URL}Vector_1.png)`,
         backgroundSize: 'cover',
@@ -14,45 +33,36 @@ const HeroSection: React.FC = () => {
       }}
     >
 
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-6 bg-red-500/20 border-2 border-red-500">
-        <div
-          style={{
-            transform: 'rotate(-90deg)',
-            transformOrigin: 'center'
-          }}
-        >
-          <img
-            src={`(${import.meta.env.BASE_URL}scroll.svg)`}
-            alt="Scroll down arrow"
-            className="w-32 h-auto border-2 border-blue-500"
-            style={{
+      {/* Scroll Down Indicator - Only visible when needed */}
+      {showScrollIndicator && (
+        <div className="fixed right-6 top-2/3 -translate-y-1/2 z-50 flex flex-col items-center gap-4 transition-opacity duration-300">
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}scroll.svg`}
+              alt="Scroll down arrow"
+              className="w-10 h-70"
+            />
+          </div>
+          <div>
+            <span
+              className="text-sm font-medium whitespace-nowrap"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                writingMode: 'vertical-lr',
+                textOrientation: 'mixed',
+                background: 'linear-gradient(to bottom, #FFFFFF, #404040)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                color: 'transparent',
+              }}
+            >
+              Scroll Down
+            </span>
+          </div>
+        </div>
+      )}
 
-            }}
-          />
-        </div>
-        <div
-          style={{
-            transform: 'rotate(-90deg)',
-            transformOrigin: 'center'
-          }}
-        >
-          <span
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '20px',
-              fontWeight: 400,
-              lineHeight: '150%',
-              color: 'white',
-              opacity: 1,
-              whiteSpace: 'nowrap',
-              backgroundColor: 'red',
-              padding: '4px'
-            }}
-          >
-            Scroll Down
-          </span>
-        </div>
-      </div>
 
       {/* Headings */}
       <div className="w-full max-w-5xl mx-auto">
@@ -97,7 +107,6 @@ const HeroSection: React.FC = () => {
               Loomed with Purpose
             </h2>
           </div>
-
         </div>
       </div>
 
@@ -110,74 +119,38 @@ const HeroSection: React.FC = () => {
         </p>
       </div>
 
-
       <div className="flex flex-col items-center gap-4 mb-10 w-full max-w-2xl mx-auto">
         <div className="flex -space-x-2 sm:-space-x-3 justify-center">
           <img
             src="https://randomuser.me/api/portraits/women/1.jpg"
             alt="user1"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
-            style={{
-              aspectRatio: '1/1',
-              borderColor: 'var(--BG-color, #0D0D12)',
-              background: 'url(https://randomuser.me/api/portraits/women/1.jpg) lightgray 50% / cover no-repeat'
-            }}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
           />
           <img
             src="https://randomuser.me/api/portraits/women/2.jpg"
             alt="user2"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
-            style={{
-              aspectRatio: '1/1',
-              borderColor: 'var(--BG-color, #0D0D12)',
-              background: 'url(https://randomuser.me/api/portraits/women/2.jpg) lightgray 50% / cover no-repeat'
-            }}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
           />
           <img
             src="https://randomuser.me/api/portraits/women/3.jpg"
             alt="user3"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
-            style={{
-              aspectRatio: '1/1',
-              borderColor: 'var(--BG-color, #0D0D12)',
-              background: 'url(https://randomuser.me/api/portraits/women/3.jpg) lightgray 50% / cover no-repeat'
-            }}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
           />
           <img
             src="https://randomuser.me/api/portraits/men/4.jpg"
             alt="user4"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
-            style={{
-              aspectRatio: '1/1',
-              borderColor: 'var(--BG-color, #0D0D12)',
-              background: 'url(https://randomuser.me/api/portraits/men/4.jpg) lightgray 50% / cover no-repeat'
-            }}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
           />
           <img
             src="https://randomuser.me/api/portraits/men/5.jpg"
             alt="user5"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4"
-            style={{
-              aspectRatio: '1/1',
-              borderColor: 'var(--BG-color, #0D0D12)',
-              background: 'url(https://randomuser.me/api/portraits/men/5.jpg) lightgray 50% / cover no-repeat'
-            }}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
           />
         </div>
 
         {/* Review text */}
         <div className="flex flex-col sm:flex-row items-center gap-2">
-          <span
-            className="font-semibold text-base sm:text-lg"
-            style={{
-              color: "#FCFCFC",
-              textAlign: "center",
-              fontFamily: "Inter",
-              fontStyle: "normal",
-              fontWeight: 600,
-              lineHeight: "121.101%",
-            }}
-          >
+          <span className="font-semibold text-base sm:text-lg text-white">
             500+ reviews
           </span>
           <div className="flex items-center gap-0.5">
@@ -185,10 +158,6 @@ const HeroSection: React.FC = () => {
               <svg
                 key={index}
                 className="w-4 h-4 sm:w-5 sm:h-5"
-                style={{
-                  transform: 'rotate(72.728deg)',
-                  aspectRatio: '18.00/17.19'
-                }}
                 viewBox="0 0 24 24"
                 fill="#EC4899"
               >
@@ -196,29 +165,17 @@ const HeroSection: React.FC = () => {
               </svg>
             ))}
           </div>
-          <span
-            className="text-base sm:text-lg"
-            style={{
-              color: "#FCFCFC",
-              textAlign: "center",
-              fontFamily: "Inter",
-              fontStyle: "normal",
-              fontWeight: 600,
-              lineHeight: "121.101%",
-              letterSpacing: "-1px"
-            }}
-          >
+          <span className="text-base sm:text-lg text-white">
             (4.9 of 5)
           </span>
         </div>
       </div>
 
-
       <div className="flex justify-center w-full max-w-md mx-auto">
         <Button
           variant="primary"
           size="lg"
-          className="w-full max-w-xs sm:max-w-sm text-base sm:text-lg md:text-xl"
+          className="w-2/3 max-w-xs sm:max-w-sm text-base sm:text-lg md:text-xl !rounded-lg"
           style={{
             height: '60px',
             fontFamily: '"Plus Jakarta Sans"',
@@ -261,7 +218,6 @@ const HeroSection: React.FC = () => {
             </span>
           </h3>
         </div>
-
 
         <div className="mt-12 w-full">
           <LogosMarquee />
