@@ -68,3 +68,16 @@ body {
   animation: subtle-blink 0.3s ease-in-out, continuous-blink 2s ease-in-out infinite;
   transform: scale(1.01);
 }
+
+/* Hide scrollbars for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}

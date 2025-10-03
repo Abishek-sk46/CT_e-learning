@@ -1,5 +1,6 @@
 
-import { Navbar, HeroSection } from "./components";
+import { Navbar, HeroSection ,FieldsSection } from "./components";
+
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       {/* Navbar at the top */}
       <Navbar activeIndex={0} />
       <HeroSection />
+      <FieldsSection />
     </div>
   );
 }
