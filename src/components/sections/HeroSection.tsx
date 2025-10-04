@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
           </div>
           <div>
             <span
-              className="text-sm font-medium whitespace-nowrap"
+              className="text-[24px] font-medium whitespace-nowrap"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 writingMode: 'vertical-lr',
@@ -55,6 +55,7 @@ const HeroSection: React.FC = () => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 color: 'transparent',
+                transform: 'rotate(180deg)',
               }}
             >
               Scroll Down
@@ -119,56 +120,54 @@ const HeroSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center gap-4 mb-10 w-full max-w-2xl mx-auto">
-        <div className="flex -space-x-2 sm:-space-x-3 justify-center">
-          <img
-            src="https://randomuser.me/api/portraits/women/1.jpg"
-            alt="user1"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
-          />
-          <img
-            src="https://randomuser.me/api/portraits/women/2.jpg"
-            alt="user2"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
-          />
-          <img
-            src="https://randomuser.me/api/portraits/women/3.jpg"
-            alt="user3"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
-          />
-          <img
-            src="https://randomuser.me/api/portraits/men/4.jpg"
-            alt="user4"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
-          />
-          <img
-            src="https://randomuser.me/api/portraits/men/5.jpg"
-            alt="user5"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 sm:border-4 border-[#0D0D12]"
-          />
-        </div>
+      <div className="flex flex-col items-center  mb-10 w-full max-w-2xl mx-auto">
+        <div className="flex flex-col items-center  mb-10 w-full max-w-2xl mx-auto">
+  {/* User Avatars */}
+  <div className="flex -space-x-4 sm:-space-x-5 justify-center">
+    {[
+      "https://randomuser.me/api/portraits/women/1.jpg",
+      "https://randomuser.me/api/portraits/women/2.jpg",
+      "https://randomuser.me/api/portraits/women/3.jpg",
+      "https://randomuser.me/api/portraits/men/4.jpg",
+      "https://randomuser.me/api/portraits/men/5.jpg",
+    ].map((src, i) => (
+      <img
+        key={i}
+        src={src}
+        alt={`user${i + 1}`}
+        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 sm:border-4 border-[#0D0D12] object-cover"
+      />
+    ))}
+  </div>
+</div>
 
         {/* Review text */}
-        <div className="flex flex-col sm:flex-row items-center gap-2">
-          <span className="font-semibold text-base sm:text-lg text-white">
-            500+ reviews
-          </span>
-          <div className="flex items-center gap-0.5">
-            {[...Array(5)].map((_, index) => (
-              <svg
-                key={index}
-                className="w-4 h-4 sm:w-5 sm:h-5"
-                viewBox="0 0 24 24"
-                fill="#EC4899"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            ))}
-          </div>
-          <span className="text-base sm:text-lg text-white">
-            (4.9 of 5)
-          </span>
-        </div>
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+  {/* Left Text */}
+  <span className="font-semibold text-lg sm:text-xl text-white">
+    500+ reviews
+  </span>
+
+  {/* Stars */}
+  <div className="flex items-center ">
+    {[...Array(5)].map((_, index) => (
+      <svg
+        key={index}
+        className="w-6 h-6 sm:w-7 sm:h-7"  // Increased size
+        viewBox="0 0 24 24"
+        fill="#EC4899"
+      >
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ))}
+  </div>
+
+  {/* Right Text */}
+  <span className="font-semibold text-lg sm:text-xl text-white">
+    (4.9 of 5)
+  </span>
+</div>
+
       </div>
 
       <div className="flex justify-center w-full max-w-md mx-auto">

@@ -18,14 +18,14 @@ const cards: CardData[] = [
         imagePath: `${import.meta.env.BASE_URL}field_logos/plan.png`,
     },
     {
-        title: "EXECUTE",
-        description: "Grasp the fundamentals and understand markets",
-        imagePath: `${import.meta.env.BASE_URL}field_logos/Execute.png`,
-    },
-    {
         title: "GROW",
         description: "Grasp the fundamentals and understand markets",
         imagePath: `${import.meta.env.BASE_URL}field_logos/Grow.png`,
+    },
+    {
+        title: "EXECUTE",
+        description: "Grasp the fundamentals and understand markets",
+        imagePath: `${import.meta.env.BASE_URL}field_logos/Execute.png`,
     },
 ];
 
@@ -33,16 +33,23 @@ const cards: CardData[] = [
 const Carousel: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [showGlow, setShowGlow] = useState(true);
 
     const nextSlide = () => {
         if (activeIndex < cards.length - 1 && !isTransitioning) {
             setIsTransitioning(true);
-            // Fade out first
+            setShowGlow(false); // Glow fades out instantly
+
+            // Fade out content first
             setTimeout(() => {
                 setActiveIndex((prev) => prev + 1);
-                // Fade back in
+                // Fade content back in
                 setTimeout(() => {
                     setIsTransitioning(false);
+                    // After ~400ms, start the glow fade in
+                    setTimeout(() => {
+                        setShowGlow(true);
+                    }, 400);
                 }, 50);
             }, 400);
         }
@@ -51,12 +58,18 @@ const Carousel: React.FC = () => {
     const prevSlide = () => {
         if (activeIndex > 0 && !isTransitioning) {
             setIsTransitioning(true);
-            // Fade out first
+            setShowGlow(false); // Glow fades out instantly
+
+            // Fade out content first
             setTimeout(() => {
                 setActiveIndex((prev) => prev - 1);
-                // Fade back in
+                // Fade content back in
                 setTimeout(() => {
                     setIsTransitioning(false);
+                    // After ~400ms, start the glow fade in
+                    setTimeout(() => {
+                        setShowGlow(true);
+                    }, 400);
                 }, 50);
             }, 400);
         }
@@ -139,26 +152,39 @@ const Carousel: React.FC = () => {
                     }}
                 >
                     {/* 🔥 Torch light with fade animation */}
-                    <div className={`absolute top-0 left-0 w-full h-full pointer-events-none z-0 transition-opacity duration-1000 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+                    <div className={`absolute top-0 left-0 w-full h-full pointer-events-none z-0 transition-opacity duration-[1500ms] ease-in-out ${showGlow ? 'opacity-100' : 'opacity-0'}`}>
+                        {/* Electric Bulb Element */}
+                        <div className="absolute left-1/2 -translate-x-1/2 -top-2 z-10">
+                            <div
+                                className="relative w-8 h-4"
+                                style={{
+                                    background: '#ce0e43',
+                                    boxShadow: '0 0 20px rgba(206,14,67,0.8), inset 0 0 10px rgba(255,255,255,0.3)',
+                                    borderRadius: '4px',
+                                }}
+                            >
+                            </div>
+                        </div>
+
+                        <div
+                            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-90"
+                            style={{
+                                width: '0',
+                                height: '0',
+                                borderLeft: '45px solid transparent',
+                                borderRight: '45px solid transparent',
+                                borderBottom: '315px solid rgba(214,14,73,0.4)',
+                                filter: 'blur(8px)',
+                            }}
+                        />
                         <div
                             className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-70"
                             style={{
                                 width: '0',
                                 height: '0',
-                                borderLeft: '60px solid transparent',
-                                borderRight: '60px solid transparent',
-                                borderBottom: '325px solid rgba(214,14,73,0.4)',
-                                filter: 'blur(8px)',
-                            }}
-                        />
-                        <div
-                            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50"
-                            style={{
-                                width: '0',
-                                height: '0',
                                 borderLeft: '100px solid transparent',
                                 borderRight: '100px solid transparent',
-                                borderBottom: '220px solid rgba(214,14,73,0.2)',
+                                borderBottom: '340px solid rgba(214,14,73,0.2)',
                                 filter: 'blur(16px)',
                             }}
                         />
@@ -341,10 +367,16 @@ const Carousel: React.FC = () => {
                         onClick={() => {
                             if (index !== activeIndex && !isTransitioning) {
                                 setIsTransitioning(true);
+                                setShowGlow(false); // Glow fades out instantly
+
                                 setTimeout(() => {
                                     setActiveIndex(index);
                                     setTimeout(() => {
                                         setIsTransitioning(false);
+                                        // After ~400ms, start the glow fade in
+                                        setTimeout(() => {
+                                            setShowGlow(true);
+                                        }, 400);
                                     }, 50);
                                 }, 400);
                             }

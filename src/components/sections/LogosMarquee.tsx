@@ -2,10 +2,10 @@ import React from "react";
 
 // Company logos with their names
 const logos = [
-  { src: `${import.meta.env.BASE_URL}logo/instagram.svg`, alt: "Amazon" },
-  { src: `${import.meta.env.BASE_URL}logo/Frame2.svg`, alt: "Frame 2" },
-  { src: `${import.meta.env.BASE_URL}logo/Frame 3.svg`, alt: "Frame 3" },
-  { src: `${import.meta.env.BASE_URL}logo/googleplus logo.svg`, alt: "Google Plus" },
+  { src: `${import.meta.env.BASE_URL}logo/instagram.svg`, alt: "Instagram" },
+  { src: `${import.meta.env.BASE_URL}logo/google.png`, alt: "google" },
+  { src: `${import.meta.env.BASE_URL}logo/amazon.png`, alt: "amazon" },
+  { src: `${import.meta.env.BASE_URL}logo/apple_pay.png`, alt: "apple pay" },
   { src: `${import.meta.env.BASE_URL}logo/linkedin-plain-wordmark logo.svg`, alt: "LinkedIn" },
   { src: `${import.meta.env.BASE_URL}logo/metalb.svg`, alt: "MetalLB" },
   { src: `${import.meta.env.BASE_URL}logo/microsoft logo.svg`, alt: "Microsoft" },

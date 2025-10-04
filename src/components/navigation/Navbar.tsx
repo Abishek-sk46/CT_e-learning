@@ -88,76 +88,81 @@ const Navbar: React.FC<NavbarProps> = ({
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className={`max-w-6xl mx-auto px-4 sm:px-6 bg-gray-900/80 backdrop-blur-sm border border-white/30 ${mobileOpen ? "rounded-2xl" : "rounded-full"
-        }`}>
-        <nav className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
-          <div className="flex items-center">
-            <span className="text-white text-lg sm:text-xl font-semibold uppercase tracking-wide">
-              {brand}
-            </span>
-          </div>
-          <div className="hidden md:flex flex-1 justify-center relative">
-            <div
-              className="relative"
-              onMouseEnter={handleMegaMenuContainerEnter}
-              onMouseLeave={handleMegaMenuContainerLeave}
-            >
-              <ul
-                className="flex items-center gap-2"
-                role="menubar"
-                aria-label="Main navigation"
+      <div
+        className="backdrop-blur-lg  shadow-lg"
+        style={{ background: 'rgba(13, 13, 18, 0.30)' }}
+      >
+        <div className={`max-w-[62rem] mx-auto px-4 sm:px-6 bg-gray-900/80 backdrop-blur-sm border border-white/30 ${mobileOpen ? "rounded-2xl" : "rounded-full"
+          }`}>
+          <nav className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6">
+            <div className="flex items-center">
+              <span className="text-white text-lg sm:text-xl font-semibold uppercase tracking-wide">
+                {brand}
+              </span>
+            </div>
+            <div className="hidden md:flex flex-1 justify-center relative">
+              <div
+                className="relative"
+                onMouseEnter={handleMegaMenuContainerEnter}
+                onMouseLeave={handleMegaMenuContainerLeave}
               >
-                {links.map((link, i) => {
-                  const isActive = i === activeIndex;
-                  return (
-                    <li key={link.label} role="none" className="relative">
-                      <a
-                        role="menuitem"
-                        href={link.href ?? "#"}
-                        className={`text-sm lg:text-lg px-3 lg:px-4 py-2 lg:py-3 rounded-2xl transition ${isActive
-                          ? "text-white font-semibold bg-gray-700"
-                          : "text-gray-300 hover:text-white hover:bg-gray-600"
-                          }`}
-                        onMouseEnter={() => handleNavItemEnter(link.label)}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+                <ul
+                  className="flex items-center gap-2"
+                  role="menubar"
+                  aria-label="Main navigation"
+                >
+                  {links.map((link, i) => {
+                    const isActive = i === activeIndex;
+                    return (
+                      <li key={link.label} role="none" className="relative">
+                        <a
+                          role="menuitem"
+                          href={link.href ?? "#"}
+                          className={`text-sm lg:text-lg px-3 lg:px-4 py-2 lg:py-3 rounded-2xl transition ${isActive
+                            ? "text-white font-semibold bg-gray-700"
+                            : "text-gray-300 hover:text-white hover:bg-gray-600"
+                            }`}
+                          onMouseEnter={() => handleNavItemEnter(link.label)}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <MegaMenu
-                isOpen={megaMenuOpen}
-                hoveredCategory={hoveredCategory}
-                onCategoryHover={handleCategoryHover}
-                categories={megaMenuData}
+                <MegaMenu
+                  isOpen={megaMenuOpen}
+                  hoveredCategory={hoveredCategory}
+                  onCategoryHover={handleCategoryHover}
+                  categories={megaMenuData}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="hidden md:inline-flex"
+              >
+                Sign In
+              </Button>
+
+              <MobileToggle
+                isOpen={mobileOpen}
+                onToggle={() => setMobileOpen((s) => !s)}
               />
             </div>
-          </div>
+          </nav>
 
-          <div className="flex items-center gap-4">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="hidden md:inline-flex"
-            >
-              Sign In
-            </Button>
-
-            <MobileToggle
-              isOpen={mobileOpen}
-              onToggle={() => setMobileOpen((s) => !s)}
-            />
-          </div>
-        </nav>
-
-        <MobileMenu
-          isOpen={mobileOpen}
-          links={links}
-          activeIndex={activeIndex}
-          onClose={() => setMobileOpen(false)}
-        />
+          <MobileMenu
+            isOpen={mobileOpen}
+            links={links}
+            activeIndex={activeIndex}
+            onClose={() => setMobileOpen(false)}
+          />
+        </div>
       </div>
     </header>
   );
