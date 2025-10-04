@@ -29,10 +29,6 @@ const cards: CardData[] = [
     },
 ];
 
-const CARD_WIDTH = 280;
-const GAP = 24;
-const VIEWPORT_WIDTH = CARD_WIDTH + GAP + CARD_WIDTH / 2; // 1 full card + gap + half card
-const LAST_CARD_VIEWPORT_WIDTH = CARD_WIDTH + GAP + CARD_WIDTH; // 1 full card + gap + full card for button
 
 const Carousel: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -67,7 +63,7 @@ const Carousel: React.FC = () => {
     };
 
     return (
-        <div className="relative w-full max-w-[500px] mx-auto">
+        <div className="relative w-full max-w-[520px] mx-auto">
             {/* Navigation */}
             <div className="flex justify-end items-center gap-3 mb-6">
                 {/* First card → show right arrow only */}
@@ -134,7 +130,7 @@ const Carousel: React.FC = () => {
             <div className="flex gap-6">
                 {/* Main Card - Content changes in place */}
                 <div
-                    className="relative w-[280px] h-[320px] flex flex-col items-center gap-[5px] cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
+                    className="relative w-[360px] h-[340px] flex flex-col items-center gap-[5px] cursor-pointer transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.02] overflow-hidden"
                     style={{
                         padding: "0 34px 35px 35px",
                         borderRadius: "8px",
@@ -186,7 +182,7 @@ const Carousel: React.FC = () => {
                                     height: "130px",
                                     backgroundImage: `url(${cards[activeIndex].imagePath})`,
                                     backgroundPosition: "center",
-                                    backgroundSize: cards[activeIndex].title === "GROW" ? "160px" : "contain",
+                                    backgroundSize: "contain",
                                     backgroundRepeat: "no-repeat",
                                 }}
                                 role="img"
@@ -195,12 +191,36 @@ const Carousel: React.FC = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-white font-semibold text-lg mb-2 tracking-wide uppercase">
+                        <h3
+                            className="text-white text-center uppercase mb-4"
+                            style={{
+                                alignSelf: 'stretch',
+                                color: '#FFF',
+                                textAlign: 'center',
+                                fontFamily: '"Plus Jakarta Sans"',
+                                fontSize: '24px',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                lineHeight: 'normal',
+                            }}
+                        >
                             {cards[activeIndex].title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-400 text-sm leading-relaxed">
+                        <p
+                            className="text-gray-400 text-center"
+                            style={{
+                                alignSelf: 'stretch',
+                                color: '#AAA',
+                                textAlign: 'center',
+                                fontFamily: '"Plus Jakarta Sans"',
+                                fontSize: '16px',
+                                fontStyle: 'normal',
+                                fontWeight: 400,
+                                lineHeight: 'normal',
+                            }}
+                        >
                             {cards[activeIndex].description}
                         </p>
                     </div>
@@ -209,14 +229,14 @@ const Carousel: React.FC = () => {
                 {/* Half Preview Card - Full content but cropped to show only half */}
                 {activeIndex < cards.length - 1 && (
                     <div
-                        className="relative w-[140px] h-[320px] overflow-hidden opacity-40"
+                        className="relative w-[210px] h-[340px] overflow-hidden opacity-40"
                         style={{
                             borderRadius: "8px 0 0 8px", // Only left corners rounded since right side is cut off
                         }}
                     >
                         {/* Full-sized card content but only half visible */}
                         <div
-                            className="relative w-[280px] h-[320px] flex flex-col items-center gap-[5px] cursor-pointer transition-opacity duration-500 ease-in-out"
+                            className="relative w-[350px] h-[340px] flex flex-col items-center gap-[5px] cursor-pointer transition-opacity duration-500 ease-in-out"
                             style={{
                                 padding: "0 34px 35px 35px",
                                 borderRadius: "8px",
@@ -251,12 +271,36 @@ const Carousel: React.FC = () => {
                                 </div>
 
                                 {/* Title - Same size as main card */}
-                                <h3 className="text-white font-semibold text-lg mb-2 tracking-wide uppercase">
+                                <h3
+                                    className="text-white text-center uppercase mb-4"
+                                    style={{
+                                        alignSelf: 'stretch',
+                                        color: '#FFF',
+                                        textAlign: 'center',
+                                        fontFamily: '"Plus Jakarta Sans"',
+                                        fontSize: '24px',
+                                        fontStyle: 'normal',
+                                        fontWeight: '500',
+                                        lineHeight: 'normal',
+                                    }}
+                                >
                                     {cards[activeIndex + 1].title}
                                 </h3>
 
                                 {/* Description - Same size as main card */}
-                                <p className="text-gray-400 text-sm leading-relaxed">
+                                <p
+                                    className="text-gray-400 text-sm leading-relaxed"
+                                    style={{
+                                        alignSelf: 'stretch',
+                                        color: '#AAA',
+                                        textAlign: 'center',
+                                        fontFamily: '"Plus Jakarta Sans"',
+                                        fontSize: '16px',
+                                        fontStyle: 'normal',
+                                        fontWeight: 400,
+                                        lineHeight: 'normal',
+                                    }}
+                                >
                                     {cards[activeIndex + 1].description}
                                 </p>
                             </div>
@@ -266,7 +310,7 @@ const Carousel: React.FC = () => {
 
                 {/* Start Now Button - Only on Last Card */}
                 {activeIndex === cards.length - 1 && (
-                    <div className="w-[140px] h-[320px] flex items-center justify-center transition-opacity duration-500 ease-in-out">
+                    <div className="w-[175px] h-[340px] flex items-center justify-center transition-opacity duration-500 ease-in-out">
                         <button
                             className="flex justify-center items-center gap-[10px] text-white font-semibold text-lg"
                             style={{
@@ -282,44 +326,44 @@ const Carousel: React.FC = () => {
                             }}
                             onClick={() => alert("Start Now clicked!")}
                         >
-                            Start Now
+                            START NOW
                         </button>
                     </div>
                 )}
             </div>
 
             {/* Pagination Dots */}
-<div className="relative flex justify-end gap-2 mt-6">
-  {/* Static white/gray dots (still clickable) */}
-  {cards.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => {
-        if (index !== activeIndex && !isTransitioning) {
-          setIsTransitioning(true);
-          setTimeout(() => {
-            setActiveIndex(index);
-            setTimeout(() => {
-              setIsTransitioning(false);
-            }, 50);
-          }, 400);
-        }
-      }}
-      className="w-3 h-3 rounded-full bg-gray-400 opacity-70 focus:outline-none"
-      aria-label={`Go to slide ${index + 1}`}
-    />
-  ))}
+            <div className="relative flex justify-end gap-2 mt-6">
+                {/* Static white/gray dots (still clickable) */}
+                {cards.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => {
+                            if (index !== activeIndex && !isTransitioning) {
+                                setIsTransitioning(true);
+                                setTimeout(() => {
+                                    setActiveIndex(index);
+                                    setTimeout(() => {
+                                        setIsTransitioning(false);
+                                    }, 50);
+                                }, 400);
+                            }
+                        }}
+                        className="w-3 h-3 rounded-full bg-gray-400 opacity-70 focus:outline-none"
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
 
-  {/* Moving red active dot */}
-  <div
-    className="absolute top-0 w-3 h-3 rounded-full bg-pink-500 transition-transform duration-500 ease-in-out"
-    style={{
-      // dot size (12px) + gap (8px) = 20px shift per index
-      transform: `translateX(${activeIndex * 20}px)`,
-      right: `${(cards.length - 1) * 20}px`, // keep alignment since you're using justify-end
-    }}
-  />
-</div>
+                {/* Moving red active dot */}
+                <div
+                    className="absolute top-0 w-3 h-3 rounded-full bg-pink-500 transition-transform duration-500 ease-in-out"
+                    style={{
+                        // dot size (12px) + gap (8px) = 20px shift per index
+                        transform: `translateX(${activeIndex * 20}px)`,
+                        right: `${(cards.length - 1) * 20}px`, // keep alignment since you're using justify-end
+                    }}
+                />
+            </div>
 
         </div>
     );

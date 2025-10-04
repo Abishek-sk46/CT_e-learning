@@ -1,5 +1,5 @@
-import React from "react";0
-import {Carousel } from "../ui";
+import React from "react"; 
+import { Carousel } from "../ui";
 // import { TwoPeekCarousel } from "../ui";
 
 const FieldsSection: React.FC = () => {
@@ -10,9 +10,9 @@ const FieldsSection: React.FC = () => {
             aria-label="Fields Section"
         >
             {/* Mobile-first: Stack vertically, then side-by-side on larger screens */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 xl:gap-10 items-start">
                 {/* Text Section - Always first on mobile */}
-                <div className="lg:col-span-7 xl:col-span-6">
+                <div className="lg:col-span-7 xl:col-span-6 pt-12 lg:pt-32">
                     <div className="max-w-[680px] mx-auto lg:mx-0">
                         {/* Section Label */}
                         <span
@@ -56,7 +56,7 @@ const FieldsSection: React.FC = () => {
                 </div>
 
                 {/* Cards Section - Second on mobile, side-by-side on desktop */}
-                <div className="lg:col-span-5 xl:col-span-6 mt-12 lg:mt-0">
+                <div className="lg:col-span-6 xl:col-span-6 mt-12 lg:mt-0">
                     {/* <TwoPeekCarousel cards={[
                         {
                             title: "LEARN",
